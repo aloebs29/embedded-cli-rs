@@ -12,7 +12,7 @@ pub fn impl_processor(target: &TargetType) -> Result<TokenStream> {
     let output = quote! {
 
         impl #named_lifetime #ident #named_lifetime {
-            fn processor<
+            pub fn processor<
                 W: _io::Write<Error = E>,
                 E: _io::Error,
                 F: FnMut(&mut _cli::cli::CliHandle<'_, W, E>, #ident #unnamed_lifetime) -> Result<(), E>,
